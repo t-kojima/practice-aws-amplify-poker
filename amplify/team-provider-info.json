@@ -1,0 +1,14 @@
+{
+    "develop": {
+        "awscloudformation": {
+            "AuthRoleName": "practice-poker-20190430110238-authRole",
+            "UnauthRoleArn": "arn:aws:iam::651759127613:role/practice-poker-20190430110238-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::651759127613:role/practice-poker-20190430110238-authRole",
+            "Region": "ap-northeast-1",
+            "DeploymentBucketName": "practice-poker-20190430110238-deployment",
+            "UnauthRoleName": "practice-poker-20190430110238-unauthRole",
+            "StackName": "practice-poker-20190430110238",
+            "StackId": "arn:aws:cloudformation:ap-northeast-1:651759127613:stack/practice-poker-20190430110238/078ce0d0-6aec-11e9-92f0-06e0593fe5b6"
+        }
+    }
+}

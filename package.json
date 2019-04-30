@@ -1,0 +1,12 @@
+{
+  "name": "practice-aws-amplify-poker",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:t-kojima/practice-aws-amplify-poker.git",
+  "author": "t-kojima <t-kojima@sonicgarden.jp>",
+  "license": "MIT",
+  "dependencies": {
+    "aws-amplify": "^1.1.26",
+    "aws-amplify-react": "^2.3.6"
+  }
+}
