@@ -1,0 +1,54 @@
+.neon {
+  display: inline-block;
+  color: #fff;
+  font-family: 'cwTeXMing', serif;
+}
+.neon.small {
+  letter-spacing: 0.05em;
+  font-size: 3em;
+}
+.neon.large {
+  letter-spacing: 0.05em;
+  font-size: 5em;
+}
+.neon.pink {
+  text-shadow: 0 1px 30px #fb1684, 0 0 12px #fff, 2px 5px 60px #990a52;
+}
+.neon > span {
+  -webkit-animation: blink 1s infinite alternate;
+  animation: blink 1s infinite alternate;
+}
+@-webkit-keyframes blink {
+  40% {
+    opacity: 0.85;
+  }
+  42% {
+    opacity: 0.4;
+  }
+  43% {
+    opacity: 0.85;
+  }
+  45% {
+    opacity: 0.4;
+  }
+  46% {
+    opacity: 0.85;
+  }
+}
+@keyframes blink {
+  40% {
+    opacity: 0.85;
+  }
+  42% {
+    opacity: 0.4;
+  }
+  43% {
+    opacity: 0.85;
+  }
+  45% {
+    opacity: 0.4;
+  }
+  46% {
+    opacity: 0.85;
+  }
+}

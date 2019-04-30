@@ -1,0 +1,31 @@
+@import "../../node_modules/bulma/sass/utilities/_all.sass";
+// @import "../../node_modules/bulma/sass/base/_all.sass";
+// @import "../../node_modules/bulma/sass/elements/_all.sass";
+@import "../../node_modules/bulma/sass/elements/container.sass";
+// @import "../../node_modules/bulma/sass/grid/_all.sass";
+// @import "../../node_modules/bulma/sass/components/_all.sass";
+@import "../../node_modules/bulma/sass/layout/_all.sass";
+@import "../../node_modules/bulma/sass/components/level.sass";
+
+.App {
+  text-align: center;
+  color: #eee;
+  font-size: 11px;
+  background-color: #1B1712;
+}
+
+.App > .container {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.App > .container > header,
+.App > .container > footer {
+  flex: 0;
+}
+
+.App > .container > main {
+  display: flex;
+  flex: 1;
+}
