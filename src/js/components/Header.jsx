@@ -8,6 +8,12 @@ export default props => (
           電<span>腦紙牌</span>遊戲
         </div>
       </div>
+      <div className="level-right">
+        <div className="level-item">
+          username
+          <button type="button" className="nes-btn is-error">logout</button>
+        </div>
+      </div>
     </nav>
   </header>
 );

@@ -1,0 +1,68 @@
+.hands {
+  padding: 1rem;
+}
+
+.card-frame {
+  background-color: #dfdfdf;
+  position: relative;
+  width: 100%;
+  margin: 0.25rem;
+  color: #3f3f3f;
+}
+
+.card-frame:before {
+  content: '';
+  display: block;
+  padding-top: 150%;
+}
+.card-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-index {
+  font-size: 2rem;
+  padding: 1rem;
+  @media screen and (max-width: 1024px) {
+    font-size: 1.5rem;
+    padding: 0.75rem;
+  }
+  @media screen and (max-width: 896px) {
+    font-size: 1rem;
+    padding: 0.5rem;
+  }
+  @media screen and (max-width: 480px) {
+    font-size: 0.5rem;
+    padding: 0.25rem;
+  }
+  
+}
+
+.card-index.right {
+  align-self: flex-end;
+}
+
+.card-suit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 6rem;
+  @media screen and (max-width: 1024px) {
+    font-size: 4rem;
+  }
+  @media screen and (max-width: 896px) {
+    font-size: 3rem;
+  }
+  @media screen and (max-width: 480px) {
+    font-size: 1.5rem;
+  }
+}
+
+span.club:before {
+  content: '\2663';
+}

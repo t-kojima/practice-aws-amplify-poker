@@ -1,17 +1,31 @@
-@import "../../node_modules/bulma/sass/utilities/_all.sass";
+@import '../../node_modules/bulma/sass/utilities/_all.sass';
 // @import "../../node_modules/bulma/sass/base/_all.sass";
-// @import "../../node_modules/bulma/sass/elements/_all.sass";
-@import "../../node_modules/bulma/sass/elements/container.sass";
-// @import "../../node_modules/bulma/sass/grid/_all.sass";
-// @import "../../node_modules/bulma/sass/components/_all.sass";
-@import "../../node_modules/bulma/sass/layout/_all.sass";
-@import "../../node_modules/bulma/sass/components/level.sass";
 
-.App {
+// elements
+// @import "../../node_modules/bulma/sass/elements/_all.sass";
+@import '../../node_modules/bulma/sass/elements/table.sass';
+@import '../../node_modules/bulma/sass/elements/container.sass';
+
+// grid
+@import '../../node_modules/bulma/sass/grid/_all.sass';
+
+// layout
+@import '../../node_modules/bulma/sass/layout/_all.sass';
+
+// components
+// @import "../../node_modules/bulma/sass/components/_all.sass";
+@import '../../node_modules/bulma/sass/components/level.sass';
+
+@import './neon.css';
+@import './card.scss';
+
+body {
   text-align: center;
   color: #eee;
   font-size: 11px;
-  background-color: #1B1712;
+  background-color: #231a17;
+  font-family: 'Press start 2P', serif;
+  margin: 0;
 }
 
 .App > .container {
@@ -20,12 +34,16 @@
   flex-direction: column;
 }
 
-.App > .container > header,
+.App > .container > header {
+  flex: 0;
+  padding: 1rem;
+}
 .App > .container > footer {
   flex: 0;
+  padding: 1rem;
 }
 
 .App > .container > main {
-  display: flex;
   flex: 1;
+  padding: 1rem;
 }

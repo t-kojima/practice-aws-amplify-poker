@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default props => (
-    <footer>
+  <footer>
     <div className="level">
       <div className="level-left" />
       <div className="level-right">
