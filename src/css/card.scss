@@ -40,7 +40,6 @@
     font-size: 0.5rem;
     padding: 0.25rem;
   }
-  
 }
 
 .card-index.right {
@@ -63,6 +62,22 @@
   }
 }
 
+span.spade:before {
+  color: #1D1412;
+  content: '\2660';
+}
+
+span.heart:before {
+  color: #b43129;
+  content: '\2661';
+}
+
+span.diamond:before {
+  color: #b43129;
+  content: '\2662';
+}
+
 span.club:before {
+  color: #1D1412;
   content: '\2663';
 }
