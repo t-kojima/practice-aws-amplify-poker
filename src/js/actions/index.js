@@ -6,4 +6,4 @@ export const DRAW = 'DRAW';
 export const createDeck = () => ({ type: CREATE_DECK });
 export const deal = cards => ({ type: DEAL, cards });
 export const hold = card => ({ type: HOLD, card });
-export const draw = () => ({ type: DRAW });
+export const draw = cards => ({ type: DRAW, cards });

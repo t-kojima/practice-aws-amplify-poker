@@ -1,6 +1,20 @@
 import { combineReducers } from 'redux';
-import { DEAL, CREATE_DECK, HOLD, DRAW } from '../actions';
+import {
+  DEAL, CREATE_DECK, HOLD, DRAW,
+} from '../actions';
 import Deck from '../deck';
+
+function status(state = 'INIT', action) {
+  const { type } = action;
+  switch (type) {
+    case DEAL:
+      return { isDeal: true };
+    case DRAW:
+      return { isDraw: true };
+    default:
+      return state;
+  }
+}
 
 function deck(state = null, action) {
   const { type } = action;
@@ -21,6 +35,8 @@ function hand(state = null, action) {
       return [
         ...state.map(_ => (_.id === cardId ? { ..._, isHold: true } : _)),
       ];
+    case DRAW:
+      return [...state.filter(({ isHold }) => isHold), ...cards];
     default:
       return state;
   }
@@ -51,4 +67,6 @@ function message(state = 'PRESS DEAL', action) {
 //   hand: hand(state.hand, action),
 // });
 
-export default combineReducers({ deck, hand, message });
+export default combineReducers({
+  status, deck, hand, message,
+});
