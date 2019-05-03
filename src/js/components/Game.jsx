@@ -1,66 +1,75 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
-import { createDeck, deal } from '../actions';
+import * as actions from '../actions';
+import PokerHands from './PokerHands';
+import Message from './Message';
 import Card from './Card';
 
-export default connect(select)(
+const mapStateToProps = state => ({
+  deck: state.deck,
+  hand: state.hand,
+  message: state.message,
+});
+
+const mapDispatchToProps = dispatch => ({
+  createDeck: () => dispatch(actions.createDeck()),
+  deal: cards => dispatch(actions.deal(cards)),
+  hold: card => dispatch(actions.hold(card)),
+  draw: () => dispatch(actions.draw()),
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(
   class Game extends React.Component {
     componentDidMount() {
-      const { deck, dispatch } = this.props;
-      deck || dispatch(createDeck());
+      const { deck, createDeck } = this.props;
+      deck || createDeck();
     }
-    onDealClick = () => {
-      const { deck, dispatch } = this.props;
-      dispatch(deal(deck.pick(5)));
-    }
+    deal = () => {
+      const { deck, deal } = this.props;
+      deal(deck.pick(5));
+    };
+    hold = (card) => {
+      const { hold } = this.props;
+      hold(card);
+    };
+    draw = () => {
+      const { draw } = this.props;
+      draw();
+    };
     render() {
-      const { hand } = this.props;
+      const { hand, message } = this.props;
       return (
         <main>
           <div>
-            <table className="table is-fullwidth">
-              <tbody>
-                <tr>
-                  <td>Royal St Flash</td>
-                  <td>100</td>
-                  <td>100</td>
-                  <td>100</td>
-                  <td>100</td>
-                  <td>100</td>
-                </tr>
-                <tr>
-                  <td>St Flash</td>
-                  <td>100</td>
-                  <td>100</td>
-                  <td>100</td>
-                  <td>100</td>
-                  <td>100</td>
-                </tr>
-                <tr>
-                  <td>Four Card</td>
-                  <td>100</td>
-                  <td>100</td>
-                  <td>100</td>
-                  <td>100</td>
-                  <td>100</td>
-                </tr>
-              </tbody>
-            </table>
-            This container is <strong>centered</strong> on desktop.
+            <PokerHands />
             {hand ? (
-              <div className="hands columns is-mobile">
-                {hand.map((card, i) => (
-                  <div className="column" key={i}>
-                    <Card suit={card.suit} number={card.number} />
-                    <button type="button" className="neon">
-                      <h1>更改</h1>
-                    </button>
-                  </div>
-                ))}
-              </div>
+              <Fragment>
+                <div className="hands columns is-mobile">
+                  {hand.map((card, i) => (
+                    <div className="column" key={i}>
+                      <Card suit={card.suit} number={card.number} />
+                      <button
+                        type="button"
+                        className="neon"
+                        onClick={this.hold.bind(this, card)}
+                      >
+                        <h1>更改</h1>
+                      </button>
+                    </div>
+                  ))}
+                </div>
+                <div>
+                  <button type="button" className="neon" onClick={this.draw}>
+                    <h1>托</h1>
+                  </button>
+                </div>
+              </Fragment>
             ) : (
               <div>
-                <button type="button" className="neon" onClick={this.onDealClick}>
+                <button type="button" className="neon" onClick={this.deal}>
                   <h1>
                     发<span>牌</span>
                     {/* 遊戲開<span>始</span> */}
@@ -68,16 +77,10 @@ export default connect(select)(
                 </button>
               </div>
             )}
+            <Message message={message} />
           </div>
         </main>
       );
     }
   },
 );
-
-function select(state) {
-  return {
-    // deck: state.deck,
-    // hand: state.hand,
-  };
-}

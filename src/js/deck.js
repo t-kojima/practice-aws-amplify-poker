@@ -2,6 +2,7 @@ export default class Deck {
   constructor() {
     this.cards = ['spade', 'club', 'diamond', 'heart']
       .map(suit => Array.from(Array(13), (_, i) => i + 1).map(number => ({
+        id: `${suit}-${number}`,
         suit,
         number,
       })))
