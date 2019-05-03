@@ -63,13 +63,14 @@ div.neon > span {
 }
 
 button.neon {
-  position: absolute;
+  // position: absolute;
   background-color: transparent;
   text-align: center;
   border-radius: 8px;
   border: 3px solid $gold-dark;
   cursor: pointer;
-  margin: 0.5rem;
+  width: 100%;
+  margin: 0.25rem;
 }
 
 button.neon:hover {

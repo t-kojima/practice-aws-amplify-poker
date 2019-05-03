@@ -1,7 +1,8 @@
-import { CREATE_DECK } from '../actions';
+import { combineReducers } from 'redux';
+import { DEAL, CREATE_DECK } from '../actions';
 import Deck from '../deck';
 
-function deck(state, action) {
+function deck(state = null, action) {
   const { type } = action;
   switch (type) {
     case CREATE_DECK:
@@ -11,10 +12,14 @@ function deck(state, action) {
   }
 }
 
-function reducer(state = {}, action) {
-  return {
-    deck: deck(state.deck, action),
-  };
+function hand(state = null, action) {
+  const { type } = action;
+  switch (type) {
+    case DEAL:
+      return action.cards;
+    default:
+      return state;
+  }
 }
 
-export default reducer;
+export default combineReducers({ deck, hand });
