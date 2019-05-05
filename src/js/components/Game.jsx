@@ -4,16 +4,20 @@ import * as actions from '../actions';
 import PokerHands from './PokerHands';
 import Message from './Message';
 import Card from './Card';
+import Deck from '../deck';
+import { pokerHands } from '../pokerHands';
 
 const mapStateToProps = state => ({
   status: state.status,
   deck: state.deck,
+  hands: state.hands,
   hand: state.hand,
   message: state.message,
 });
 
 const mapDispatchToProps = dispatch => ({
-  createDeck: () => dispatch(actions.createDeck()),
+  createDeck: () => dispatch(actions.createDeck(new Deck())),
+  createHands: () => dispatch(actions.createHands(pokerHands)),
   deal: cards => dispatch(actions.deal(cards)),
   hold: card => dispatch(actions.hold(card)),
   draw: cards => dispatch(actions.draw(cards)),
@@ -25,8 +29,11 @@ export default connect(
 )(
   class Game extends React.Component {
     componentDidMount() {
-      const { deck, createDeck } = this.props;
+      const {
+        deck, hands, createDeck, createHands,
+      } = this.props;
       deck || createDeck();
+      hands || createHands();
     }
     componentDidUpdate() {
       const { state } = this.props;

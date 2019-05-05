@@ -1,8 +1,7 @@
 import { combineReducers } from 'redux';
 import {
-  DEAL, CREATE_DECK, HOLD, DRAW,
+  CREATE_DECK, CREATE_HANDS, DEAL, HOLD, DRAW,
 } from '../actions';
-import Deck from '../deck';
 
 function status(state = 'INIT', action) {
   const { type } = action;
@@ -17,10 +16,20 @@ function status(state = 'INIT', action) {
 }
 
 function deck(state = null, action) {
-  const { type } = action;
+  const { type, deck: _deck } = action;
   switch (type) {
     case CREATE_DECK:
-      return new Deck();
+      return _deck;
+    default:
+      return state;
+  }
+}
+
+function hands(state = null, action) {
+  const { type, hands: _hands } = action;
+  switch (type) {
+    case CREATE_HANDS:
+      return _hands;
     default:
       return state;
   }
@@ -68,5 +77,9 @@ function message(state = 'PRESS DEAL', action) {
 // });
 
 export default combineReducers({
-  status, deck, hand, message,
+  status,
+  deck,
+  hand,
+  message,
+  hands,
 });
